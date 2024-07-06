@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<!-- Your content goes here --> 
+{% block title %}Sign Up Success{% endblock %}
+
+{% block contents %}
+
+    
+    <div class ="container">
+        <div class="row">
+            <div class="col offset-4  py-4">
+                <h2>Sign Up Success</h2>
+                <p>Thank you for signing up!</p>
+                <p>Click <a href="{% url 'accounts:login' %}">ログインはこちら</a></p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

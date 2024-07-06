@@ -8,3 +8,5 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display_links = ('id','username')
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+{% block contents %}
+    
+
+        <hr>
+        <div class ="container">
+            <div class="row">
+                <div class="col offset-2">
+                    <h2>Sign Up</h2>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                            <p>
+                                {{ field.label_tag }}<br>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small style="color: grey">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </p>
+                        {% endfor %}
+                        <p style = "color: red">
+                            ※パスワードは8文字以上で入力してください．また，メールアドレスは，パスワードをリセットする際に使用しますので，正確に入力してください．
+                        </p>
+                        
+                        <input type="submit" value="Sign up">
+                        
+                        
+                    </form>
+                        <br>
+                        <p><a href = "#">
+                            登録をやめてトップページや戻る</a>  
+                        </p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
