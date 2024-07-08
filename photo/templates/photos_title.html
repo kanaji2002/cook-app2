@@ -1,23 +1,83 @@
-
-
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Cook App</h1>
-        <p class="lead text-body-secondary">作った料理の写真を投稿しましょう！　使用したレシピを簡単に記録できます！</p>
-        <p>
-          {% if user.is_authenticated %}
-            <a href="{% url 'photo:post' %}" class="btn btn-primary my-2">投稿する</a>
-            <a href="{% url 'accounts:logout' %}" class="btn btn-secondary my-2">ログアウト</a>
-          {% else %}
-            <a href="{% url 'accounts:signup' %}" class="btn btn-primary my-2">今すぐサインアップ</a>
-            <a href="{% url 'accounts:login' %}" class="btn btn-secondary my-2">登録済みの方はログイン</a>
-          {% endif %}
-          
-        </p>
+{% load static %}
+<section class="py-5 text-center container">
+  <div class="background-container">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="txt_bg_blue_white">Cook App</h1>
+          <p class="sub-white">作った料理の写真を投稿しましょう！　使用したレシピを簡単に記録できます！</p>
+          <p>
+            {% if user.is_authenticated %}
+              <a href="{% url 'photo:post' %}" class="btn btn-primary my-2">投稿する</a>
+              <a href="{% url 'accounts:logout' %}" class="btn btn-secondary my-2">ログアウト</a>
+            {% else %}
+              <a href="{% url 'accounts:signup' %}" class="btn btn-primary my-2">今すぐサインアップ</a>
+              <a href="{% url 'accounts:login' %}" class="btn btn-secondary my-2">登録済みの方はログイン</a>
+            {% endif %}
+          </p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  
+<style>
+  .background-container {
+    position: relative;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 20px;
+    background-color: rgba(255, 248, 248, 0.8); /* 追加 */
+  }
+
+  .background-container::before {
+    content: "";
+    background-image: url("{% static 'img/head-image.png' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* 画像の色を薄くする */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  /* .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 248, 248, 0.5);
+    z-index: 2;
+  } */
+
+  .content {
+    position: relative;
+    z-index: 3;
+  }
+
+  .txt_bg_blue_white{
+    background-color: #ffffff;
+    padding:0.2em;
+    border-radius:2px;
+    color: rgb(255, 230, 1);
+    border-radius: 15px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px black;
+}
+
+.sub-white {
+  color: azure;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 4px black;
+}
+</style>
