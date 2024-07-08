@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Mypage{% endblock %}
+
+{% block contents %}
+
+
+{% if user.is_authenticated %}
+<br>
+<div style="text-align:center">
+
+<h4>{{user.username}}さんのマイページ</h4>
+{% if object_list.count == 0 %}
+    <p>投稿がありません</p>
+{% else %}
+    <p> 投稿<strong>{{object_list.count}}</strong></p>
+{% endif %}
+<a href ="{% url 'photo:post' %}">新規投稿</a>
+
+</div>
+
+<hr
+
+{% endif %}
+
+
+{% include "photos_list.html" %}
+
+{% include "pagination.html" %}
+{% endblock %}
