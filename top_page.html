@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .container a:hover {
+            background-color: #0056b3;
+        }
+
+        .searchBox{
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .searchBox :focus {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .engineSelect {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .engineSelect:focus{
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <input type="text" id="searchBox"  placeholder="Search...">
+        <select id="engineSelect">
+            <option value="https://www.google.com/search?q=">Google</option>
+            <option value="bing">Bing</option>
+            <option value="yahoo">Yahoo</option>
+
+        </select>
+    </div>
+
+    <script>
+        document.getElementById('searchBox').addEventListener('keypress', function(e){
+            if(e.key === 'Enter'){
+                var searchEngine = document.getElementById('engineSelect').value;
+                var query = this.value;
+                window.open(searchEngine + query, '_self');
+            }
+        });
+    </script>
+</body>
+</html>
