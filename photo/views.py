@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView,ListView
 # Create your views here.
 from django.views.generic import TemplateView
@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from .models import PhotoPost
 from django.views.generic import DetailView
 from django.views.generic import DeleteView
+from django.http import HttpResponseRedirect
 class  IndexView(ListView):
     template_name='index.html'
     queryset  = PhotoPost.objects.order_by('-posted_at')
@@ -25,7 +26,8 @@ class CreatePhotoView(CreateView):
         postdata = form.save(commit=False)
         postdata.user = self.request.user
         postdata.save()
-        return super().form_valid(form)
+        self.object = postdata
+        return HttpResponseRedirect(self.success_url)
     
 
 class PostSuccessView(TemplateView):

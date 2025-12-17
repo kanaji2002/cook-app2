@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-w58r-lt83ek38*8%ps16^jhc5m_z6df=fi^qgae)8my#=je1q=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'photoproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'photoproject.db_backend',  # カスタムバックエンドを使用
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
