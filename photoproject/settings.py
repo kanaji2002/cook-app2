@@ -65,9 +65,13 @@ WSGI_APPLICATION = 'photoproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'photoproject.db_backend',  # カスタムバックエンドを使用
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "cookdb",
+        "USER": "cookuser",
+        "PASSWORD": "cookpass",
+        "HOST": "db",  # Dockerなら "db"
+        "PORT": "5432",
     }
 }
 

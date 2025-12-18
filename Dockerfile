@@ -17,6 +17,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # プロジェクト全体をコピー
 COPY . /app/
 
-# Django 開発サーバ起動
-RUN ["python3", "manage.py", "migrate"]
+
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
